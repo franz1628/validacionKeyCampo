@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <head>
+    	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    	<script type="text/javascript" src="validCampoFranz.js"></script>
+
+    	<script type="text/javascript">
+    		$(function(){
+    			//Para escribir solo letras
+    			$('#miCampo1').validCampoFranz(' abcdefghijklmnñopqrstuvwxyzáéiou');
+
+    			//Para escribir solo numeros	
+    			$('#miCampo2').validCampoFranz('0123456789');	
+    		});
+    	</script> 	   
+    </head>
+    <body>
+    	<h2>Escribe s&oacute;lo teclas permitidas</h2>  
+    	
+    	Mi Campo 1 <input type="text" id="miCampo1">	  
+    	Mi Campo 2 <input type="text" id="miCampo2">	  
+    </body>
+</html>
