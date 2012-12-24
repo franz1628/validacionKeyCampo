@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
     <head>
-    	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    	<script type="text/javascript" src="validCampoFranz.js"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    	<script src="validCampoFranz.js"></script>
 
     	<script type="text/javascript">
     		$(function(){
@@ -16,8 +16,16 @@
     </head>
     <body>
     	<h2>Escribe s&oacute;lo teclas permitidas</h2>  
-    	
-    	Mi Campo 1 <input type="text" id="miCampo1">	  
-    	Mi Campo 2 <input type="text" id="miCampo2">	  
+     
+        <div class="row-fluid">
+            <div class="span6">Campo de acepta s&oacute;lo letras y espacios</div>
+            <div class="span6"><input type="text" id="miCampo1"></div>
+        </div>    
+        
+        <div class="row-fluid">
+            <div class="span6">Campo que acepta s&oacute;lo n&uacute;meros</div>
+            <div class="span6"><input type="text" id="miCampo2"></div>
+        </div>   
+    	  
     </body>
 </html>
