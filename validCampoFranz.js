@@ -1,3 +1,6 @@
+/****** Creado por Franz Gualambo ***************/
+/***** *Email : gualambo@gmail.com  *****************/
+
 (function( $ ) {
 	$.fn.validCampoFranz = function(cadena) {
     	$(this).on({
