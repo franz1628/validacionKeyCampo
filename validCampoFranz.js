@@ -1,11 +1,48 @@
-/****** Creado por Franz Gualambo ***************/
-/***** Email : gualambo@gmail.com  *****************/
- (function ( a ) {
-            a.fn.validCampoFranz=function(b){
-            a(this).on({keypress:function(a){
-            var c=a.which,
-            d=a.keyCode,
-            e=String.fromCharCode(c).toLowerCase(),
-            f=b;
-        (-1!=f.indexOf(e)||9==d||37!=c&&37==d||39==d&&39!=c||8==d||46==d&&46!=c)&&161!=c||a.preventDefault()
-        }})}}( jQuery ));
+(function ($) {
+    $.fn.validCampoFranz = function (allowedChars) {
+        return this.each(function () {
+            const $input = $(this);
+
+            function sanitize(value) {
+                const escaped = allowedChars.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+                const regex = new RegExp(`[^${escaped}]`, "gi");
+                return value.replace(regex, "");
+            }
+
+            $input.on("input", function () {
+                const original = this.value;
+                const cleaned = sanitize(original);
+
+                if (original !== cleaned) {
+                    this.value = cleaned;
+                }
+            });
+
+            $input.on("keydown", function (e) {
+                const controlKeys = [
+                    "Backspace",
+                    "Delete",
+                    "Tab",
+                    "ArrowLeft",
+                    "ArrowRight",
+                    "Home",
+                    "End",
+                    "Enter"
+                ];
+
+                if (
+                    controlKeys.includes(e.key) ||
+                    e.ctrlKey ||
+                    e.metaKey ||
+                    e.altKey
+                ) {
+                    return;
+                }
+
+                if (e.key.length === 1 && !allowedChars.toLowerCase().includes(e.key.toLowerCase())) {
+                    e.preventDefault();
+                }
+            });
+        });
+    };
+})(jQuery);
